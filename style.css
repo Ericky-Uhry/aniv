@@ -1,10 +1,24 @@
+:root {
+  --cor-primaria: #800000; /* vermelho escuro */
+  --cor-secundaria: #ffe5e5; /* rosa claro de fundo */
+  --cor-destaque: #ff4d4d; /* vermelho vibrante para ícones e botões */
+  --cor-fundo-claro: #fff0f0; /* fundo mais claro */
+  --cor-detalhe: #ffcccc; /* detalhes, bordas suaves */
+  --cor-texto: #800000;
+  --cor-hover: #ff9999;
+  --cor-sombra: rgba(0, 0, 0, 0.1);
+  --cor-overlay: rgba(50, 0, 0, 0.8);
+  --cor-balao: #ff5c8a;
+  --cor-confete: #ff6666;
+}
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #e0f7ff, #f0faff);
-  color: #004080;
+  background: linear-gradient(to bottom, var(--cor-secundaria), var(--cor-fundo-claro));
+  color: var(--cor-texto);
   overflow-x: hidden;
   position: relative;
 }
@@ -22,7 +36,7 @@ html, body {
   position: absolute;
   width: 10px; height: 10px;
   border-radius: 50%;
-  background-color: gold;
+  background-color: var(--cor-confete);
   animation: fall linear infinite;
   opacity: 0.8;
 }
@@ -37,13 +51,14 @@ html, body {
   position: absolute;
   width: 30px;
   height: 40px;
-  background-color: #ff69b4;
+  background-color: var(--cor-balao);
   border-radius: 50% 50% 45% 45%;
   animation: floatBalloon 6s ease-in-out infinite;
   opacity: 0.7;
 }
+
 @keyframes floatBalloon {
-  0%   { transform: translateY(100vh); }
+  0% { transform: translateY(100vh); }
   100% { transform: translateY(-100px); }
 }
 
@@ -58,7 +73,7 @@ html, body {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px #cce6ff;
+  text-shadow: 2px 2px 4px var(--cor-detalhe);
 }
 #content p {
   font-size: 1.4rem;
@@ -77,43 +92,47 @@ html, body {
   gap: 2.5rem;
   justify-content: center;
 }
+
 .menu-item {
   background-color: #ffffffcc;
   padding: 40px 30px;
   border-radius: 25px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px var(--cor-sombra);
   transition: transform 0.3s;
   text-decoration: none;
-  color: #004080;
+  color: var(--cor-texto);
   height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .menu-item:hover {
   transform: scale(1.05);
-  background-color: #d0ebff;
+  background-color: var(--cor-hover);
 }
+
 .menu-item i {
   font-size: 3rem;
-  color: #ff9900;
+  color: var(--cor-destaque);
   margin-bottom: 0.8rem;
 }
+
 .menu-item h2 {
   font-size: 1.6rem;
   margin: 0;
 }
 
-/* Mensagem Final com animação */
+/* Mensagem Final */
 .birthday-message {
   margin-top: 2rem;
   font-size: 1rem;
-  color: #003366;
+  color: var(--cor-primaria);
   background: #ffffffcc;
   padding: 12px 18px;
   border-radius: 10px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 4px var(--cor-sombra);
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -121,7 +140,6 @@ html, body {
   position: relative;
 }
 
-/* Animação aparecendo suave */
 @keyframes fadeInMessage {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -132,8 +150,6 @@ html, body {
   line-height: 1.6;
 }
 
-
-/* Página de Fotos SEPARAÇÃO */
 /* CARROSSEL DE FOTOS */
 .carousel {
   position: relative;
@@ -142,8 +158,8 @@ html, body {
   margin: 0 auto;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  background-color: #e0f7ff;
+  box-shadow: 0 4px 10px var(--cor-sombra);
+  background-color: var(--cor-secundaria);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,7 +172,7 @@ html, body {
   border-radius: 20px;
   padding: 10px;
   transition: opacity 0.5s ease-in-out;
-  background-color: #f0faff;
+  background-color: var(--cor-fundo-claro);
 }
 
 .fade-in {
@@ -172,7 +188,7 @@ html, body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #ff9900;
+  background-color: var(--cor-destaque);
   border: none;
   font-size: 2rem;
   color: white;
@@ -184,7 +200,7 @@ html, body {
 }
 
 .carousel button:hover {
-  background-color: #ffb84d;
+  background-color: var(--cor-hover);
 }
 
 .carousel .prev { left: 10px; }
@@ -200,8 +216,8 @@ html, body {
 .back-button {
   padding: 10px 24px;
   border-radius: 12px;
-  background-color: #ff9900;
-  border: 2px solid #ffb84d;
+  background-color: var(--cor-destaque);
+  border: 2px solid var(--cor-hover);
   color: white;
   font-size: 1.4rem;
   text-decoration: none;
@@ -212,12 +228,12 @@ html, body {
 }
 
 .back-button:hover {
-  background-color: #ffb84d;
+  background-color: var(--cor-hover);
   transform: scale(1.05);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* GALERIA DE MOMENTOS */
+/* GALERIA */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -226,13 +242,15 @@ html, body {
   margin: 0 auto;
   padding: 20px;
 }
+
 .gallery-item {
   background-color: #ffffffcc;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px var(--cor-sombra);
   overflow: hidden;
   transition: transform 0.3s;
 }
+
 .gallery-item img,
 .gallery-item video {
   width: 100%;
@@ -240,6 +258,7 @@ html, body {
   display: block;
   object-fit: cover;
 }
+
 .gallery-item:hover {
   transform: scale(1.03);
 }
@@ -251,27 +270,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 50, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  padding: 20px;
-}
-.lightbox img,
-.lightbox video {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 15px;
-  box-shadow: 0 0 12px rgba(255,255,255,0.4);
-}
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 50, 0.8);
+  background-color: var(--cor-overlay);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -309,44 +308,44 @@ html, body {
   z-index: 1000;
   transition: background-color 0.3s, transform 0.3s;
 }
+
 .lightbox .close-lightbox:hover {
   background-color: rgba(255, 69, 0, 1);
   transform: scale(1.1);
 }
 
-
-
 .hidden {
   display: none;
 }
 
-
 /* CALENDÁRIO DE AMOR */
 .love-calendar {
   text-align: center;
-  color: #004080;
+  color: var(--cor-texto);
   padding: 20px;
 }
+
 .love-photo img {
   width: 240px;
   height: 240px;
   object-fit: cover;
   border-radius: 50%;
-  border: 6px solid #a6d8f5;
+  border: 6px solid var(--cor-detalhe);
   margin: 30px 0;
   box-shadow: 0 4px 14px rgba(0,0,0,0.15);
 }
+
 .love-timer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d0ebff;
-  border: 3px solid #99d4f0;
+  background-color: var(--cor-fundo-claro);
+  border: 3px solid var(--cor-detalhe);
   border-radius: 20px;
   padding: 6px 6px;
   margin-top: 30px;
   width: 100%;
-  max-width: 340px; /* cabe até em celular pequeno */
+  max-width: 340px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
@@ -358,8 +357,8 @@ html, body {
   align-items: center;
   padding: 0 4px;
   flex: 1;
-  min-width: 0; /* evita estourar */
-  border-right: 1px solid #99d4f0;
+  min-width: 0;
+  border-right: 1px solid var(--cor-detalhe);
   box-sizing: border-box;
 }
 
@@ -370,14 +369,15 @@ html, body {
 .timer-number {
   font-size: 1.3rem;
   font-weight: bold;
-  color: #0066cc;
+  color: var(--cor-destaque);
 }
 
 .timer-label {
   font-size: 0.7rem;
-  color: #004080;
+  color: var(--cor-primaria);
   margin-top: 2px;
 }
+
 
 
 
@@ -393,14 +393,15 @@ html, body {
 }
 .love-note-container h1 {
   font-size: 3rem;
-  color: #004080;
+  color: var(--cor-texto);
   margin-bottom: 20px;
 }
 .love-note-container p {
   font-size: 1.4rem;
-  color: #0066aa;
+  color: var(--cor-destaque);
   margin-bottom: 70px;
 }
+
 .envelope {
   width: 340px;
   height: 260px;
@@ -411,8 +412,8 @@ html, body {
   transition: transform 0.3s ease;
 }
 .envelope .body {
-  background: #d0ebff;
-  border: 3px solid #99d4f0;
+  background: var(--cor-fundo-claro);
+  border: 3px solid var(--cor-detalhe);
   width: 100%;
   height: 100%;
   border-radius: 0 0 20px 20px;
@@ -424,11 +425,11 @@ html, body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom left, #e0f7ff, #d0ebff);
+  background: linear-gradient(to bottom left, var(--cor-secundaria), var(--cor-fundo-claro));
   clip-path: polygon(0 0, 100% 0, 50% 60%);
   z-index: 3;
   border-radius: 20px 20px 0 0;
-  border: 3px solid #99d4f0;
+  border: 3px solid var(--cor-detalhe);
   border-bottom: none;
 }
 .envelope .flap {
@@ -436,13 +437,13 @@ html, body {
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom right, #a6d8f5, #d0ebff);
+  background: linear-gradient(to bottom right, var(--cor-detalhe), var(--cor-fundo-claro));
   clip-path: polygon(0 0, 100% 0, 50% 60%);
   transform-origin: top;
   transition: transform 0.6s ease-in-out;
   z-index: 4;
   border-radius: 20px 20px 0 0;
-  border: 3px solid #99d4f0;
+  border: 3px solid var(--cor-detalhe);
   border-bottom: none;
 }
 .envelope .letter {
@@ -452,10 +453,10 @@ html, body {
   transform: translateX(-50%) translateY(40px);
   width: 280px;
   padding: 25px;
-  background: #f0faff;
+  background: var(--cor-fundo-claro);
   border-radius: 12px;
   font-size: 1.4rem;
-  color: #004080;
+  color: var(--cor-texto);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transition: all 0.6s ease;
@@ -464,6 +465,7 @@ html, body {
   line-height: 1.8;
   font-weight: 500;
 }
+
 .envelope.open .flap {
   transform: rotateX(-180deg);
   z-index: 2;
@@ -491,18 +493,18 @@ html, body {
   font-size: 1rem;
   border: none;
   border-radius: 12px;
-  background-color: #a6d8f5;
-  color: #004080;
+  background-color: var(--cor-detalhe);
+  color: var(--cor-texto);
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px solid #7bbce3;
+  border: 2px solid var(--cor-hover);
 }
 .fechar-carta:hover {
-  background-color: #d0ebff;
-  color: #0066aa;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-destaque);
 }
 
-/* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS */
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
   #content h1 {
     font-size: 2rem;
@@ -597,8 +599,13 @@ html, body {
     font-size: 1.4rem;
     padding: 5px 8px;
   }
+
+  .lightbox-content-wrapper {
+    padding-top: 30px;
+  }
 }
-/* Ajuste do botão de fechar (X) no lightbox para mobile */
+
+/* Ajuste botão fechar lightbox mobile */
 @media (max-width: 768px) {
   .lightbox .close-lightbox {
     top: 10px;
