@@ -344,7 +344,7 @@ html, body {
   border: 3px solid #99d4f0;
   border-radius: 20px;
   padding: 10px 20px;
-  gap: 10px;
+  gap: 0px;
   margin-top: 30px;
   max-width: max-content;
   margin-left: auto;
@@ -354,8 +354,9 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 14px;
   position: relative;
+  border-right: 1px solid #99d4f0;
 }
 .timer-number {
   font-size: 2.8rem;
@@ -372,7 +373,9 @@ html, body {
   color: #004080;
   margin-top: 20px;
 }
-.timer-segment:not(:last-child)::after {
+
+.timer-segment:last-child {
+  border-right: none;
   content: "";
   position: absolute;
   right: 0;
