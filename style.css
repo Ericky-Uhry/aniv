@@ -373,8 +373,7 @@ html, body {
   color: #004080;
   margin-top: 20px;
 }
-
-.timer-segment:last-child {
+.timer-segment:not(:last-child)::after {
   border-right: none;
   content: "";
   position: absolute;
