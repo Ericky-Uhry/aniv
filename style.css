@@ -344,12 +344,12 @@ html, body {
   border: 3px solid #99d4f0;
   border-radius: 20px;
   padding: 10px 20px;
-  gap: 0px;
   margin-top: 30px;
   max-width: max-content;
   margin-left: auto;
   margin-right: auto;
 }
+
 .timer-segment {
   display: flex;
   flex-direction: column;
@@ -358,31 +358,21 @@ html, body {
   position: relative;
   border-right: 1px solid #99d4f0;
 }
+
+.timer-segment:last-child {
+  border-right: none;
+}
+
 .timer-number {
   font-size: 2.8rem;
   font-weight: bold;
   color: #0066cc;
 }
+
 .timer-label {
   margin-top: 5px;
   font-size: 1.1rem;
   color: #004080;
-}
-.love-note {
-  font-size: 1.4rem;
-  color: #004080;
-  margin-top: 20px;
-}
-.timer-segment:not(:last-child)::after {
-  border-right: none;
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 10%;
-  height: 80%;
-  width: 1px;
-  background-color: #99d4f0;
-  opacity: 0.6;
 }
 
 
