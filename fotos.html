@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fotos</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+<body>
+  <!-- Efeitos de aniversário -->
+  <div class="confetti-container"></div>
+  <div class="balloon-container"></div>
+
+
+  <div id="content">
+    <h1><strong>Fotos</strong></h1>
+    <p>📸✨ Nossas fotos preferidas ✨❤️</p>
+
+    <div class="carousel">
+      <button class="prev">&#10094;</button>
+      <img id="carousel-img" src="fotos/10f0e329-39f5-4ac0-a0e7-a3695c3ef532.jpeg" alt="Foto" />
+      <button class="next">&#10095;</button>
+    </div>
+  </div>
+
+<div class="back-container">
+  <a href="index.html" class="back-button" title="Voltar">
+    <i class="fas fa-arrow-left"></i>
+  </a>
+</div>
+
+  <script>
+    const images = [
+      "fotos/10f0e329-39f5-4ac0-a0e7-a3695c3ef532.jpeg",
+      "fotos/41e8c9cd-8051-4ab4-9b95-ac40e09a0808.jpeg",
+      "fotos/66f955d7-d90f-4d37-b09a-95189d0f61cf.jpeg",
+      "fotos/68ab083f-16b9-495c-8298-46e40d13a51c.jpeg",
+      "fotos/a092a958-403c-4b2c-b0ed-f41bcdeb18ca.jpeg",
+      "fotos/bb553868-3679-45a6-9069-467b691fd518.jpeg",
+      "fotos/e0efe39c-388f-412a-a9e5-1af6553fc423.jpeg",
+      "fotos/f34ec942-3b37-4ba7-bec5-38429cf49865.jpeg"
+    ];
+
+    let currentIndex = 0;
+    const imgElement = document.getElementById("carousel-img");
+
+    document.querySelector(".prev").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      imgElement.classList.remove("fade-in");
+      void imgElement.offsetWidth;
+      imgElement.src = images[currentIndex];
+      imgElement.classList.add("fade-in");
+    });
+
+    document.querySelector(".next").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      imgElement.classList.remove("fade-in");
+      void imgElement.offsetWidth;
+      imgElement.src = images[currentIndex];
+      imgElement.classList.add("fade-in");
+    });
+  </script>
+</body>
+</html>

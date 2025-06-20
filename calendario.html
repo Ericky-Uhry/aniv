@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calendário do Amor</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Efeitos de aniversário -->
+  <div class="confetti-container"></div>
+  <div class="balloon-container"></div>
+
+  <div id="content" class="love-calendar">
+    <h1><strong>Nossa jornada do amor</strong></h1>
+    <p>Há quanto tempo estamos juntos?</p>
+
+    <div class="love-photo">
+      <img src="fotos/66f955d7-d90f-4d37-b09a-95189d0f61cf.jpeg" alt="Nosso retrato">
+    </div>
+
+    <div class="love-timer">
+      <div class="timer-segment">
+        <div id="years" class="timer-number">0</div>
+        <div class="timer-label">anos</div>
+      </div>
+      <div class="timer-segment">
+        <div id="months" class="timer-number">0</div>
+        <div class="timer-label">meses</div>
+      </div>
+      <div class="timer-segment">
+        <div id="days" class="timer-number">0</div>
+        <div class="timer-label">dias</div>
+      </div>
+      <div class="timer-segment">
+        <div id="hours" class="timer-number">00</div>
+        <div class="timer-label">horas</div>
+      </div>
+      <div class="timer-segment">
+        <div id="minutes" class="timer-number">00</div>
+        <div class="timer-label">min</div>
+      </div>
+      <div class="timer-segment">
+        <div id="seconds" class="timer-number">00</div>
+        <div class="timer-label">seg</div>
+      </div>
+    </div>
+
+    <p class="love-note">❤️ eu te amo todo esse tempo ❤️</p>
+  </div>
+
+  <div class="back-container">
+    <a href="index.html" class="back-button" title="Voltar">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+  </div>
+
+  <script>
+    const startDate = new Date("2017-01-01T00:00:00");
+
+    function updateTimer() {
+      const now = new Date();
+      let years = now.getFullYear() - startDate.getFullYear();
+      let months = now.getMonth() - startDate.getMonth();
+      let days = now.getDate() - startDate.getDate();
+
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+
+      document.getElementById("years").textContent = years;
+      document.getElementById("months").textContent = months;
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>

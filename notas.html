@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notas de Amor</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e0f7ff, #f0faff);
+      color: #004080;
+    }
+
+    .confetti-container,
+    .balloon-container {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* Se você tiver animações em script.js, mantenha elas por lá */
+  </style>
+</head>
+<body>
+
+  <!-- Efeitos de aniversário -->
+  <div class="confetti-container"></div>
+  <div class="balloon-container"></div>
+
+  <!-- Conteúdo centralizado -->
+  <div class="love-note-container">
+    <h1>Notas de Amor</h1>
+    <p>💌 Clique no envelope para abrir uma mensagem especial 💌</p>
+
+    <div class="envelope" onclick="abrirEnvelope()">
+      <div class="top"></div>
+      <div class="body"></div>
+      <div class="flap"></div>
+      <div class="letter" id="love-note-text">
+        <!-- Frase aparece aqui -->
+      </div>
+    </div>
+
+    <!-- Botão voltar -->
+    <div class="back-container">
+      <a href="index.html" class="back-button" title="Voltar">
+        <i class="fas fa-arrow-left"></i>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const frases = [
+      "Amor, cada momento com você é um presente que a vida me deu. 🎁💖",
+      "Você é meu abrigo, meu amor e minha paz. 🏡❤️‍🔥",
+      "Desde que te conheci, meu coração tem um sorriso constante. 😊💘",
+      "Nada me faz mais feliz do que ver seu sorriso. 😍✨",
+      "Meu mundo ganhou cor desde que você chegou. 🌈💑",
+      "Você é meu porto seguro, meu melhor amigo e meu amor. ⚓❤️",
+      "Estar com você é como estar em casa, mesmo longe de tudo. 🛋️💕",
+      "O amor que sinto por você só cresce com o tempo. ⏳🌹",
+      "Te amar é a certeza mais bonita que tenho na vida. 💭💗",
+      "Com você, tudo é mais leve, mais doce, mais bonito. 🍯🌟",
+      "Você faz meu coração bater mais forte só com um olhar. 👀💓",
+      "Obrigada por ser meu companheiro em tudo. 🤝💞",
+      "Nosso amor é meu lugar favorito no mundo. 🗺️💖",
+      "A cada dia, tenho mais certeza de que fui feita pra você. 🔐💑",
+      "Você é o capítulo mais bonito da minha história. 📖💘"
+    ];
+
+    let envelopeAberto = false;
+
+    function abrirEnvelope() {
+      const envelope = document.querySelector(".envelope");
+      const carta = document.getElementById("love-note-text");
+
+      if (!envelopeAberto) {
+        const frase = frases[Math.floor(Math.random() * frases.length)];
+        envelope.classList.add("open");
+        carta.innerHTML = `
+          ${frase}
+          <br><br>
+          <button class="fechar-carta" onclick="fecharEnvelope(event)">Fechar 💌</button>
+        `;
+        envelopeAberto = true;
+      }
+    }
+
+    function fecharEnvelope(event) {
+      event.stopPropagation();
+      const envelope = document.querySelector(".envelope");
+      const carta = document.getElementById("love-note-text");
+
+      envelope.classList.remove("open");
+      carta.innerHTML = "";
+      envelopeAberto = false;
+    }
+  </script>
+
+</body>
+</html>
