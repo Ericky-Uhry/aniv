@@ -343,20 +343,24 @@ html, body {
   background-color: #d0ebff;
   border: 3px solid #99d4f0;
   border-radius: 20px;
-  padding: 10px 20px;
+  padding: 6px 6px;
   margin-top: 30px;
-  max-width: max-content;
+  width: 100%;
+  max-width: 340px; /* cabe até em celular pequeno */
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 .timer-segment {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 14px;
-  position: relative;
+  padding: 0 4px;
+  flex: 1;
+  min-width: 0; /* evita estourar */
   border-right: 1px solid #99d4f0;
+  box-sizing: border-box;
 }
 
 .timer-segment:last-child {
@@ -364,16 +368,17 @@ html, body {
 }
 
 .timer-number {
-  font-size: 2.8rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #0066cc;
 }
 
 .timer-label {
-  margin-top: 5px;
-  font-size: 1.1rem;
+  font-size: 0.7rem;
   color: #004080;
+  margin-top: 2px;
 }
+
 
 
 /* ENVELOPE E CARTA */
